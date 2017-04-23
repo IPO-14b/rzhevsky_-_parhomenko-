@@ -27,3 +27,9 @@ function userStep(cell) {
     }
 }
 
+function enemyStep() {
+    if (mystep == 1)
+        return;
+
+   //TODO
+}
