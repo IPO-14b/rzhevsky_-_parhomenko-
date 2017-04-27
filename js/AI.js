@@ -17,7 +17,19 @@ function userStep(cell) {
         if (cell_step[cell_num] > 0)
             alert('Эта клетка уже занята');
         else {
-            //TODO
+             cell.css('color', '#0a0').html('X');
+            cell_step[cell_num] = 1;
+            if (checkWin() == 'false') {
+                mystep = 0;
+                steps--;
+                if (steps < 1) {
+                    alert('Ничья');
+                    reset();
+                    return 'false';
+                }
+            } else {
+                return 'false';
+            }
         }
     }
 }
