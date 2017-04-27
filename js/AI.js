@@ -77,7 +77,28 @@ function enemyStep() {
 	}
 	
 	function checkAttack() {
-		//TODO
+		if (cell_step[3] == 0)
+        return 5;
+
+    if ((cell_step[0] == 2 && cell_step[1] == 2 && cell_step[2] == 0) || (cell_step[5] == 2 && cell_step[8] == 2 && cell_step[2] == 0) || (cell_step[4] == 2 && cell_step[6] == 2 && cell_step[2] == 0))
+        return 5;
+    if ((cell_step[0] == 2 && cell_step[2] == 2 && cell_step[1] == 0) || (cell_step[4] == 2 && cell_step[7] == 2 && cell_step[1] == 0))
+        return 3;
+    if ((cell_step[1] == 2 && cell_step[2] == 2 && cell_step[0] == 0) || (cell_step[3] == 2 && cell_step[6] == 2 && cell_step[0] == 0) || (cell_step[4] == 2 && cell_step[8] == 2 && cell_step[0] == 0))
+        return 5;
+    if ((cell_step[3] == 2 && cell_step[4] == 2 && cell_step[5] == 0) || (cell_step[2] == 2 && cell_step[8] == 2 && cell_step[5] == 0))
+        return 6;
+    if ((cell_step[3] == 2 && cell_step[5] == 2 && cell_step[4] == 0) || (cell_step[1] == 2 && cell_step[7] == 2 && cell_step[4] == 0))
+        return 5;
+    if ((cell_step[4] == 2 && cell_step[5] == 2 && cell_step[3] == 0) || (cell_step[0] == 2 && cell_step[6] == 2 && cell_step[3] == 0))
+        return 1;
+    if ((cell_step[6] == 2 && cell_step[7] == 2 && cell_step[8] == 0) || (cell_step[2] == 2 && cell_step[5] == 2 && cell_step[8] == 0) || (cell_step[0] == 2 && cell_step[4] == 2 && cell_step[8] == 0))
+        return 8;
+    if ((cell_step[6] == 2 && cell_step[8] == 2 && cell_step[7] == 0) || (cell_step[1] == 2 && cell_step[4] == 2 && cell_step[7] == 0))
+        return 8;
+    if ((cell_step[7] == 2 && cell_step[8] == 2 && cell_step[6] == 0) || (cell_step[0] == 2 && cell_step[3] == 2 && cell_step[6] == 0) || (cell_step[2] == 2 && cell_step[4] == 2 && cell_step[6] == 0))
+        return 7;
+    return 'false';
 	}
 
 function reset() {
