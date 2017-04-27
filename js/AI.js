@@ -98,6 +98,10 @@ function enemyStep() {
 		//TODO
 	}
 	
+	function getRandomCell() {
+    return Math.floor(Math.random() * 9) + 1;
+	}
+	
 $(function() {
     mystep = Math.floor(Math.random() * (1 + 1));
     if (mystep == 0)
