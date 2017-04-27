@@ -71,6 +71,15 @@ function enemyStep() {
     } else {
         return 'false';
     }
+	
+	function checkDefence() {
+		//TODO
+	}
+	
+	function checkAttack() {
+		//TODO
+	}
+	
 $(function() {
     mystep = Math.floor(Math.random() * (1 + 1));
     if (mystep == 0)
