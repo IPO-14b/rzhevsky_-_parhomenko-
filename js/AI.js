@@ -1,4 +1,4 @@
-var userWins  = localStorage["userWins"]  ? localStorage["userWins"]  : 0;
+﻿var userWins  = localStorage["userWins"]  ? localStorage["userWins"]  : 0;
 var enemyWins = localStorage["enemyWins"] ? localStorage["enemyWins"] : 0;
 
 var mystep = 1;
@@ -79,6 +79,25 @@ function enemyStep() {
 	function checkAttack() {
 		//TODO
 	}
+
+function reset() {
+    mystep = Math.floor(Math.random() * (1 + 1));
+    steps = 9;
+    cell_step =
+        [
+            0, 0, 0, 0, 0, 0, 0, 0, 0
+        ];
+    $('.cell').html('');
+    $('.uw').html(userWins);
+    $('.ew').html(enemyWins);
+
+    localStorage["userWins"]  = userWins;
+    localStorage["enemyWins"] = enemyWins;
+    chrome.browserAction.setBadgeText({text: userWins + ":" + enemyWins});
+
+    if (mystep == 0)
+        enemyStep();
+}
 	
 $(function() {
     mystep = Math.floor(Math.random() * (1 + 1));
