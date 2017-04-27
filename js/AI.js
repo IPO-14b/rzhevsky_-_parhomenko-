@@ -102,6 +102,10 @@ function enemyStep() {
     return Math.floor(Math.random() * 9) + 1;
 	}
 	
+	function reset() {
+		//TODO
+	}
+	
 $(function() {
     mystep = Math.floor(Math.random() * (1 + 1));
     if (mystep == 0)
