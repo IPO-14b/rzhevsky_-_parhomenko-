@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
 <article>Крестики нолики</title>
@@ -62,6 +62,25 @@
 		<para>    }</para>
 		<para>} else {</para>
 		<para>    return 'false';</para>
+		<para>}</para>
+    </abstract>
+    <abstract>
+        <title>Пример 3: Сброс состояния</title>
+		<para>function reset() {</para>
+		<para>	  mystep = Math.floor(Math.random() * (1 + 1));</para>
+		<para>	  steps = 9;</para>
+		<para>	  cell_step =</para>
+		<para>		  [</para>
+		<para>			0, 0, 0, 0, 0, 0, 0, 0, 0</para>
+		<para>		  ];</para>
+		<para>$('.cell').html('');</para>
+		<para>$('.uw').html(userWins);</para>
+		<para>$('.ew').html(enemyWins);</para>
+		<para>localStorage["userWins"]  = userWins;</para>
+		<para>localStorage["enemyWins"] = enemyWins;</para>
+		<para>chrome.browserAction.setBadgeText({text: userWins + ":" + enemyWins});</para>
+		<para>if (mystep == 0)</para>
+		<para>	  enemyStep();</para>
 		<para>}</para>
     </abstract>
 </article>
