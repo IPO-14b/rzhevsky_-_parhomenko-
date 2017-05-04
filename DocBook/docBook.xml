@@ -1,18 +1,18 @@
-<?xml version='1.0' encoding='UTF-8'?>
+п»ї<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
-<article>Крестики нолики</title>
-    <para>Использован jquery.JS</para>
+<article>РљСЂРµСЃС‚РёРєРё РЅРѕР»РёРєРё</title>
+    <para>РСЃРїРѕР»СЊР·РѕРІР°РЅ jquery.JS</para>
     <abstract>
-        <title>Пример 1: Шаг пользователя</title>
+        <title>РџСЂРёРјРµСЂ 1: РЁР°Рі РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</title>
 		<para>function userStep(cell) {</para>
 		<para>	if (mystep != 1)</para>
-        <para>		alert('Сейчас не Ваш ход');</para>
+        <para>		alert('РЎРµР№С‡Р°СЃ РЅРµ Р’Р°С€ С…РѕРґ');</para>
 		<para>	else {</para>
         <para>		var cell_num = cell.attr('id');</para>
         <para>		cell_num--;</para>
         <para>		if (cell_step[cell_num] > 0)</para>
-        <para>		alert('Эта клетка уже занята');</para>
+        <para>		alert('Р­С‚Р° РєР»РµС‚РєР° СѓР¶Рµ Р·Р°РЅСЏС‚Р°');</para>
         <para>		else {</para>
         <para>			 cell.css('color', '#0a0').html('X');</para>
         <para>			 cell_step[cell_num] = 1;</para>
@@ -20,7 +20,7 @@
         <para>				 mystep = 0;</para>
         <para>				 steps--;</para>
         <para>				 if (steps < 1) {</para>
-        <para>					 alert('Ничья');</para>
+        <para>					 alert('РќРёС‡СЊСЏ');</para>
         <para>					 reset();</para>
         <para>					 return 'false';</para>
         <para>				 }</para>
@@ -32,7 +32,7 @@
 		<para>}</para>
 		</abstract>
     <abstract>
-        <title>Пример 2: Шаг противника</title>
+        <title>РџСЂРёРјРµСЂ 2: РЁР°Рі РїСЂРѕС‚РёРІРЅРёРєР°</title>
         <para>function enemyStep() {</para>
 		<para>	  if (mystep == 1)</para>
         <para>	      return;</para>
@@ -56,7 +56,7 @@
 		<para>    mystep = 1;</para>
 		<para>    steps--;</para>
 		<para>    if (steps < 1) {</para>
-		<para>        alert('Ничья');</para>
+		<para>        alert('РќРёС‡СЊСЏ');</para>
 		<para>        reset();</para>
 		<para>        return 'false';</para>
 		<para>    }</para>
