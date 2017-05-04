@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
+<article>Крестики нолики</title>
+    <para>Использован jquery.JS</para>
+    <abstract>
+        <title>Пример 1: Шаг пользователя</title>
+		<para>function userStep(cell) {</para>
+		<para>	if (mystep != 1)</para>
+        <para>		alert('Сейчас не Ваш ход');</para>
+		<para>	else {</para>
+        <para>		var cell_num = cell.attr('id');</para>
+        <para>		cell_num--;</para>
+        <para>		if (cell_step[cell_num] > 0)</para>
+        <para>		alert('Эта клетка уже занята');</para>
+        <para>		else {</para>
+        <para>			 cell.css('color', '#0a0').html('X');</para>
+        <para>			 cell_step[cell_num] = 1;</para>
+        <para>			 if (checkWin() == 'false') {</para>
+        <para>				 mystep = 0;</para>
+        <para>				 steps--;</para>
+        <para>				 if (steps < 1) {</para>
+        <para>					 alert('Ничья');</para>
+        <para>					 reset();</para>
+        <para>					 return 'false';</para>
+        <para>				 }</para>
+        <para>			 } else {</para>
+        <para>				 return 'false';</para>
+        <para>			 }</para>
+        <para>			}</para>
+		<para>		}</para>
+		<para>}</para>
+		</abstract>
+    <abstract>
+        <title>Пример 2: Шаг противника</title>
+        <para>function enemyStep() {</para>
+		<para>	  if (mystep == 1)</para>
+        <para>	      return;</para>
+		<para>	  attack = checkAttack();</para>
+		<para>	  if (attack == 'false') {</para>
+		<para>	  defence = checkDefence();</para>
+		<para>    if (defence == 'false') {</para>
+		<para>        do {</para>
+		<para>            next_step = getRandomCell();</para>
+		<para>		  } while (cell_step[next_step-1] > 0);</para>
+		<para>	  } else {</para>
+		<para>		  next_step = defence;</para>
+		<para>    }</para>
+		<para>} else {</para>
+		<para>    next_step = attack;</para>
+		<para>}</para>
+		<para>$('#'+next_step).css('color', '#a00').html('O');</para>
+		<para>next_step--;</para>
+		<para>cell_step[next_step] = 2;</para>
+		<para>if (checkWin() == 'false') {</para>
+		<para>    mystep = 1;</para>
+		<para>    steps--;</para>
+		<para>    if (steps < 1) {</para>
+		<para>        alert('Ничья');</para>
+		<para>        reset();</para>
+		<para>        return 'false';</para>
+		<para>    }</para>
+		<para>} else {</para>
+		<para>    return 'false';</para>
+		<para>}</para>
+    </abstract>
+</article>
