@@ -138,6 +138,7 @@ function enemyStep() {
     }
 }
 
+<<<<<<< HEAD
 /**
 * Проверка далжен ли компьютер блокировать серию ходов пользователя
 * 
@@ -146,6 +147,8 @@ function enemyStep() {
 *
 * @return mixed 	 Возвращает номер ячейки необходимый для защиты либо false если угрозы нет
 */
+=======
+>>>>>>> origin/master
 	function checkDefence() {
 	if ((cell_step[0] == 1 && cell_step[1] == 1 && cell_step[2] == 0) || (cell_step[5] == 1 && cell_step[8] == 1 && cell_step[2] == 0) || (cell_step[4] == 1 && cell_step[6] == 1 && cell_step[2] == 0))
         return 3;
@@ -168,6 +171,7 @@ function enemyStep() {
     return 'false';
 	}
 	
+<<<<<<< HEAD
 /**
 * Выбор ячейки для хода
 * 
@@ -176,6 +180,9 @@ function enemyStep() {
 *
 * @return mixed 	 Возвращает номер ячейки необходимый для атаки либо false если таких ячеек нет
 */
+=======
+
+>>>>>>> origin/master
 function checkAttack() {
 	if (cell_step[4] == 0)
     return 5;
@@ -201,11 +208,15 @@ function checkAttack() {
     return 'false';
 	}
 
+<<<<<<< HEAD
 /**
 * Сброс поля
 * 
 * Очищается поле и игра начинается заново
 */
+=======
+
+>>>>>>> origin/master
 function reset() {
     mystep = Math.floor(Math.random() * (1 + 1));
     steps = 9;
@@ -225,6 +236,7 @@ function reset() {
         enemyStep();
 }
 	
+<<<<<<< HEAD
 /**
 * Выбор случайной ячейки
 *
@@ -232,16 +244,22 @@ function reset() {
 * 
 * @return int Возвращает номер выбранной ячейки
 */
+=======
+
+>>>>>>> origin/master
 	function getRandomCell() {
     	return Math.floor(Math.random() * 9) + 1;
 	}
 	
 
+<<<<<<< HEAD
 /**
 * Определение хода противника или игрока
 * 
 * Определяет кто сейчас совершает ход
 */
+=======
+>>>>>>> origin/master
 $(function() {
     mystep = Math.floor(Math.random() * (1 + 1));
     if (mystep == 0)
