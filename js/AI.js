@@ -1,13 +1,68 @@
-﻿var userWins  = localStorage["userWins"]  ? localStorage["userWins"]  : 0;
+﻿/**
+* Счет побед пользователя
+*
+* Используем для определения счета побед пользователя
+* Содержит числовое значение
+*
+* @var		int userWins
+*/
+var userWins  = localStorage["userWins"]  ? localStorage["userWins"]  : 0;
+
+/**
+* Счет побед компьютера
+*
+* Используем для определения счета побед компьютера
+* Содержит числовое значение
+*
+* @var		int enemyWins
+*/
 var enemyWins = localStorage["enemyWins"] ? localStorage["enemyWins"] : 0;
 
+/**
+* Индикатор хода пользователя
+*
+* Используем для определения разрешен ли ход пользователю
+* Содержит числовое значение между 0 и 1
+* Ход пользователя разрешен при значении 1 и запрещен при значении 0
+*
+* @var		int mystep
+*/
 var mystep = 1;
+
+/**
+* Счетчик оставшихся ходов
+*
+* Используем для определения количества оставшихся ходов
+* Содержит числовое значение не болше количества ячеек в поле
+*
+* @var		int steps
+*/
 var steps = 9;
+
+/**
+* Массив состояний ячеек
+*
+* Используем для определения крестиков или ноливков в клетках
+* Содержит массив числовых значений 0 1 2
+*
+* @var		int[] cell_step
+*/
 var cell_step =
     [
         0, 0, 0, 0, 0, 0, 0, 0, 0
     ];
 
+/**
+* Обработка шага пользователя
+*
+* Если ход пользователю разрешен то
+* проверяется свободна ли клетка выбранная пользователем и
+* если она свободна то проставляется крестик или нолик выбранный пользователем
+* и проверяется победил пользователь или игра еще не окончена
+*
+* @param object cell Обьект ячейки на поле для отрисовки хода
+* @return string 	 Возвращает 'false' если результат игры ничья или победа пользователя
+*/
 function userStep(cell) {
     if (mystep != 1)
         alert('Сейчас не Ваш ход');
@@ -34,11 +89,21 @@ function userStep(cell) {
     }
 }
 
+
 $(function() {
     $('.uw').text(userWins);
     $('.ew').text(enemyWins);
 });
 
+/**
+* Обработка шага компьютера
+*
+* Если ход компьютеру разрешен то вызываются функции checkAttack и
+* checkDefence определяющие нужно компьютеру блокировать линию ходов 
+* пользователя либо атаковать и совершается соответствующее действие
+*  
+* @return string 	 Возвращает 'false' если результат игры ничья или победа компьютера
+*/
 function enemyStep() {
     if (mystep == 1)
         return;
@@ -71,7 +136,8 @@ function enemyStep() {
     } else {
         return 'false';
     }
-	
+}
+
 	function checkDefence() {
 	if ((cell_step[0] == 1 && cell_step[1] == 1 && cell_step[2] == 0) || (cell_step[5] == 1 && cell_step[8] == 1 && cell_step[2] == 0) || (cell_step[4] == 1 && cell_step[6] == 1 && cell_step[2] == 0))
         return 3;
@@ -94,9 +160,10 @@ function enemyStep() {
     return 'false';
 	}
 	
-	function checkAttack() {
-		if (cell_step[4] == 0)
-        return 5;
+
+function checkAttack() {
+	if (cell_step[4] == 0)
+    return 5;
 
     if ((cell_step[0] == 2 && cell_step[1] == 2 && cell_step[2] == 0) || (cell_step[5] == 2 && cell_step[8] == 2 && cell_step[2] == 0) || (cell_step[4] == 2 && cell_step[6] == 2 && cell_step[2] == 0))
         return 3;
@@ -119,6 +186,7 @@ function enemyStep() {
     return 'false';
 	}
 
+
 function reset() {
     mystep = Math.floor(Math.random() * (1 + 1));
     steps = 9;
@@ -138,14 +206,12 @@ function reset() {
         enemyStep();
 }
 	
+
 	function getRandomCell() {
-    return Math.floor(Math.random() * 9) + 1;
+    	return Math.floor(Math.random() * 9) + 1;
 	}
 	
-	function reset() {
-		//TODO
-	}
-	
+
 $(function() {
     mystep = Math.floor(Math.random() * (1 + 1));
     if (mystep == 0)
