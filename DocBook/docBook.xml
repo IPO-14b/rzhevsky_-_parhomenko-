@@ -2,85 +2,92 @@
 <!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
 <article>Крестики нолики</title>
-    <para>Использован jquery.JS</para>
-    <abstract>
+<para>Данноенное проложение является программмой которая необходима для:</para>
+<listitem>1.Обучения учащихся младших классов.</listitem>
+<para>Развитие мышления в младших класссах необходимо для дальнейшего быстрого роста в любой сфередеятельности.</para>
+<listitem>2.Развитие умственой деятельности и логического мышления у людей.</listitem>
+<para>Это проложение поддерживает и развивает умственную деятельность людей в любом возрасте</para>
+<listitem>3.Помогает вам развеселитсяи поиграти в крестики нолики</listitem>
+<para>Возмоно вы просто хотите скоротать время и это приложение  вам в этом поможет.</para>
+    <programlisting>Использован jquery.JS</programlisting>
+    <section>
         <title>Пример 1: Шаг пользователя</title>
-		<para>function userStep(cell) {</para>
-		<para>	if (mystep != 1)</para>
-        <para>		alert('Сейчас не Ваш ход');</para>
-		<para>	else {</para>
-        <para>		var cell_num = cell.attr('id');</para>
-        <para>		cell_num--;</para>
-        <para>		if (cell_step[cell_num] > 0)</para>
-        <para>		alert('Эта клетка уже занята');</para>
-        <para>		else {</para>
-        <para>			 cell.css('color', '#0a0').html('X');</para>
-        <para>			 cell_step[cell_num] = 1;</para>
-        <para>			 if (checkWin() == 'false') {</para>
-        <para>				 mystep = 0;</para>
-        <para>				 steps--;</para>
-        <para>				 if (steps < 1) {</para>
-        <para>					 alert('Ничья');</para>
-        <para>					 reset();</para>
-        <para>					 return 'false';</para>
-        <para>				 }</para>
-        <para>			 } else {</para>
-        <para>				 return 'false';</para>
-        <para>			 }</para>
-        <para>			}</para>
-		<para>		}</para>
-		<para>}</para>
-		</abstract>
-    <abstract>
+		<programlisting>function userStep(cell) {
+							if (mystep != 1)
+								alert('Сейчас не Ваш ход');
+							else {
+							var cell_num = cell.attr('id');
+							cell_num--;
+								if (cell_step[cell_num] > 0)
+									alert('Эта клетка уже занята');
+								else {
+									 cell.css('color', '#0a0').html('X');
+									 cell_step[cell_num] = 1;
+									 if (checkWin() == 'false') {
+										 mystep = 0;
+										 steps--;
+										  if (steps < 1) {
+											 alert('Ничья');
+											 reset();
+									         return 'false';
+											}
+										} else {
+											return 'false';
+									}
+        			}
+				}
+		}</programlisting>
+		</section>
+    <section>
         <title>Пример 2: Шаг противника</title>
-        <para>function enemyStep() {</para>
-		<para>	  if (mystep == 1)</para>
-        <para>	      return;</para>
-		<para>	  attack = checkAttack();</para>
-		<para>	  if (attack == 'false') {</para>
-		<para>	  defence = checkDefence();</para>
-		<para>    if (defence == 'false') {</para>
-		<para>        do {</para>
-		<para>            next_step = getRandomCell();</para>
-		<para>		  } while (cell_step[next_step-1] > 0);</para>
-		<para>	  } else {</para>
-		<para>		  next_step = defence;</para>
-		<para>    }</para>
-		<para>} else {</para>
-		<para>    next_step = attack;</para>
-		<para>}</para>
-		<para>$('#'+next_step).css('color', '#a00').html('O');</para>
-		<para>next_step--;</para>
-		<para>cell_step[next_step] = 2;</para>
-		<para>if (checkWin() == 'false') {</para>
-		<para>    mystep = 1;</para>
-		<para>    steps--;</para>
-		<para>    if (steps < 1) {</para>
-		<para>        alert('Ничья');</para>
-		<para>        reset();</para>
-		<para>        return 'false';</para>
-		<para>    }</para>
-		<para>} else {</para>
-		<para>    return 'false';</para>
-		<para>}</para>
-    </abstract>
-    <abstract>
+        <programlisting>function enemyStep() {
+							  if (mystep == 1)
+								  return;
+							  attack = checkAttack();
+							  if (attack == 'false') {
+							defence = checkDefence();
+							if (defence == 'false') {
+							do {
+									next_step = getRandomCell();
+								  } while (cell_step[next_step-1] > 0);
+									} else {
+									next_step = defence;
+									}
+								} else {
+						next_step = attack;
+						}
+						$('#'+next_step).css('color', '#a00').html('O');
+						next_step--;
+						cell_step[next_step] = 2;
+						if (checkWin() == 'false') {
+							mystep = 1;
+							steps--;
+							if (steps < 1) {
+								alert('Ничья');
+								reset();
+								return 'false';
+							}
+						} else {
+						return 'false';
+		}</programlisting>
+    </section>
+    <section>
         <title>Пример 3: Сброс состояния</title>
-		<para>function reset() {</para>
-		<para>	  mystep = Math.floor(Math.random() * (1 + 1));</para>
-		<para>	  steps = 9;</para>
-		<para>	  cell_step =</para>
-		<para>		  [</para>
-		<para>			0, 0, 0, 0, 0, 0, 0, 0, 0</para>
-		<para>		  ];</para>
-		<para>$('.cell').html('');</para>
-		<para>$('.uw').html(userWins);</para>
-		<para>$('.ew').html(enemyWins);</para>
-		<para>localStorage["userWins"]  = userWins;</para>
-		<para>localStorage["enemyWins"] = enemyWins;</para>
-		<para>chrome.browserAction.setBadgeText({text: userWins + ":" + enemyWins});</para>
-		<para>if (mystep == 0)</para>
-		<para>	  enemyStep();</para>
-		<para>}</para>
-    </abstract>
+		<programlisting>function reset() {
+							  mystep = Math.floor(Math.random() * (1 + 1));
+							  steps = 9;
+							  cell_step =
+								  [
+									0, 0, 0, 0, 0, 0, 0, 0, 0
+								  ];
+						$('.cell').html('');
+						$('.uw').html(userWins);
+						$('.ew').html(enemyWins);
+						localStorage["userWins"]  = userWins;
+						localStorage["enemyWins"] = enemyWins;
+						chrome.browserAction.setBadgeText({text: userWins + ":" + enemyWins});
+						if (mystep == 0)
+							enemyStep();
+		}</programlisting>
+    </section>
 </article>
