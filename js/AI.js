@@ -16,7 +16,7 @@ var userWins = localStorage["userWins"] ? localStorage["userWins"] : 0;
 *
 * @var        int enemyWins
 */
-enemyWins = localStorage["enemyWins"] ? localStorage["enemyWins"] : 0;
+var enemyWins = localStorage["enemyWins"] ? localStorage["enemyWins"] : 0;
 
 /**
 * Индикатор хода пользователя
@@ -64,7 +64,7 @@ var cell_step =
 * @return string      Возвращает 'false' если результат игры ничья или победа пользователя
 */
 function userStep(cell) {
-    if (mystep != -1) {
+    if (mystep != 1) {
         alert('Сейчас не Ваш ход');
     }
     else {
@@ -83,10 +83,10 @@ function userStep(cell) {
                 if (steps < 1) {
                     alert('Ничья');
                     reset();
-                    return 'true';
+                    return 'false';
                 }
             } else {
-                return 'true';
+                return 'false';
             }
         }
     }
@@ -101,7 +101,7 @@ function userStep(cell) {
 */
 $(function() {
     $('.uw').text(userWins);
-    $('.ew').text(userWins);
+    $('.ew').text(enemyWins);
 });
 
 /**
