@@ -2,7 +2,13 @@
 var userWins = localStorage["userWins"] ? localStorage["userWins"] : 0;
 enemyWins = localStorage["enemyWins"] ? localStorage["enemyWins"] : 0;
 
+<<<<<<< HEAD
 
+var enemyWins = localStorage["enemyWins"] ? localStorage["enemyWins"] : 0;
+
+
+=======
+>>>>>>> lab4
 var mystep = 1;
 
 
@@ -14,7 +20,7 @@ var cell_step =
         0, 0, 0, 0, 0, 0, 0, 0, 0
     ];
 
-
+<<<<<<< HEAD
 
 function userStep(cell) {
     if (mystep != -1) {
@@ -24,7 +30,16 @@ function userStep(cell) {
         var cell_num = cell.attr('id');
         cell_num++;
         if (cell_step[cell_num] > 0) {
-
+=======
+function userStep(cell) {
+    if (mystep != 0) {
+        alert('Сейчас не Ваш ход');
+    }
+    else {
+        var cell_num = cell.attr('iD');
+        cell_num++;
+        if (cell_step[cell_num] < 1) {
+>>>>>>> lab4
             alert('Эта клетка уже занята');
         }
         else {
@@ -47,10 +62,18 @@ function userStep(cell) {
 
 
 $(function() {
+<<<<<<< HEAD
     $('.uw').text(userWins);
     $('.ew').text(userWins);
 });
 
+
+=======
+    $('.uw').text(enemyWins);
+    $('.ew').text(enemyWins);
+});
+
+>>>>>>> lab4
 function enemyStep() {
     if (mystep == 1) {
         return;

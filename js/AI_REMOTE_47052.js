@@ -2,7 +2,6 @@
 var userWins = localStorage["userWins"] ? localStorage["userWins"] : 0;
 enemyWins = localStorage["enemyWins"] ? localStorage["enemyWins"] : 0;
 
-
 var mystep = 1;
 
 
@@ -14,17 +13,14 @@ var cell_step =
         0, 0, 0, 0, 0, 0, 0, 0, 0
     ];
 
-
-
 function userStep(cell) {
-    if (mystep != -1) {
+    if (mystep != 0) {
         alert('Сейчас не Ваш ход');
     }
     else {
-        var cell_num = cell.attr('id');
+        var cell_num = cell.attr('iD');
         cell_num++;
-        if (cell_step[cell_num] > 0) {
-
+        if (cell_step[cell_num] < 1) {
             alert('Эта клетка уже занята');
         }
         else {
@@ -39,7 +35,7 @@ function userStep(cell) {
                     return 'true';
                 }
             } else {
-                return 'true';
+                return 'false';
             }
         }
     }
@@ -47,8 +43,8 @@ function userStep(cell) {
 
 
 $(function() {
-    $('.uw').text(userWins);
-    $('.ew').text(userWins);
+    $('.uw').text(enemyWins);
+    $('.ew').text(enemyWins);
 });
 
 function enemyStep() {
