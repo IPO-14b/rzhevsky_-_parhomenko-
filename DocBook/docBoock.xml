@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
+<article>
+  <title>Крестики-нолики</title>
+  <abstract>
+    <para>Крастики-нолики —  логическая игра между двумя противниками на квадратном поле 3 на 3 клетки или бо́льшего размера (вплоть до «бесконечного поля»). Один из игроков играет «крестиками», второй— «ноликами». В традиционной китайской игре (Гомоку) используются черные и белые камни.</para>
+    <para>Цель игры состоит в том, чтобы победить противника составив прямую линию из своих фигур</para>
+  </abstract>
+  <section>
+    <title> Шаг пользователя</title>
+    <para>Функция шага пользователя</para>
+    <programlisting>    function userStep(cell) {
+        if (mystep != 1) {
+            alert(&apos;Сейчас не Ваш ход&apos;);
+        }
+        else {
+            var cell_num = cell.attr(&apos;id&apos;);
+            cell_num--;
+            if (cell_step[cell_num] &gt; 0) {
+                alert(&apos;Эта клетка уже занята&apos;);
+            }
+            else {
+                 cell.css(&apos;color&apos;, &apos;#0a0&apos;).html(&apos;X&apos;);
+                 cell_step[cell_num] = 1;
+                 if (checkWin() == &apos;false&apos;) {
+                     mystep = 0;
+                     steps--;
+                     if (steps &lt; 1) {
+                         alert(&apos;Ничья&apos;);
+                         reset();
+                         return &apos;false&apos;;
+                    }
+                } else {
+                    return &apos;false&apos;;
+                }
+        }
+}</programlisting>
+  </section>
+  <section>
+    <title>Шаг противника</title>
+    <para>Функция шага противника</para>
+    <programlisting>function enemyStep() {
+    if (mystep == 1) {
+        return;
+    }
+
+    attack = checkAttack();
+    if (attack == &apos;false&apos;) {
+        defence = checkDefence();
+        if (defence == &apos;false&apos;) {
+            do {
+                next_step = getRandomCell();
+            } while (cell_step[next_step-1] &gt; 0);
+        } else {
+            next_step = defence;
+        }
+    } else {
+        next_step = attack;
+    }
+
+    $(&apos;#&apos;+next_step).css(&apos;color&apos;, &apos;#a00&apos;).html(&apos;O&apos;);
+    next_step--;
+    cell_step[next_step] = 2;
+    if (checkWin() == &apos;false&apos;) {
+        mystep = 1;
+        steps--;
+        if (steps &lt; 1) {
+            alert(&apos;Ничья&apos;);
+            reset();
+            return &apos;false&apos;;
+        }
+    } else {
+        return &apos;false&apos;;
+    }
+}</programlisting>
+  </section>
+  <section>
+    <title> Сброс состояния</title>
+    <para>Функция сброса состояния и прогресса игры</para>
+    <programlisting>function reset() {
+    mystep = Math.floor(Math.random() * (1 + 1));
+    steps = 9;
+    cell_step =
+        [
+            0, 0, 0, 0, 0, 0, 0, 0, 0
+        ];
+    $(&apos;.cell&apos;).html(&apos;&apos;);
+    $(&apos;.uw&apos;).html(userWins);
+    $(&apos;.ew&apos;).html(enemyWins);
+
+    localStorage[&quot;userWins&quot;]  = userWins;
+    localStorage[&quot;enemyWins&quot;] = enemyWins;
+    chrome.browserAction.setBadgeText({text: userWins + &quot;:&quot; + enemyWins});
+
+    if (mystep == 0) {
+        enemyStep();
+    }
+}</programlisting>
+  </section>
+</article>
